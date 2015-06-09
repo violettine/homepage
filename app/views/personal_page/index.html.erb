@@ -5,10 +5,10 @@
 
 <%= tag :meta, :bubbling=> 'bubbling_variable', :content=> @bubbling_variable%>
 
-<div id='canvas' >
-<canvas id="myCanvas" ></canvas>
+<iframe width="427" height="260" src="https://www.youtube.com/embed/Gq0jfzgvvrM" frameborder="0" allowfullscreen></iframe>
+
+<p id='canvas' >
+<canvas id="myCanvas" style="border:1px solid black;"></canvas>
 <%= javascript_include_tag 'bubbles.js'%>
 <%= javascript_include_tag 'bubbles_main.js'%>
-</div>
-
-<iframe width="427" height="260" src="https://www.youtube.com/embed/Gq0jfzgvvrM" frameborder="0" allowfullscreen></iframe>
+</p>
