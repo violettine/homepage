@@ -1,0 +1,2 @@
+module FunPageHelper
+end
