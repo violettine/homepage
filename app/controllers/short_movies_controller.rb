@@ -1,9 +1,10 @@
 class ShortMoviesController < ApplicationController
   def show
+    @short_movies = ShortMovie.all
   end
 
   def create
-    @short_movie = ShortMovies.new(short_movies_require)
+    @short_movie = ShortMovie.new(short_movies_require)
 
     if @short_movie.save
       puts 'Video saved!'
