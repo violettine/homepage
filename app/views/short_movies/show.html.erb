@@ -1,10 +1,7 @@
 <h1> Cute and funny short Movies </h1>
 
 <% @short_movies.each do |movie| %>
-  <% unless movie.link.match(/embed/)
-  # replace watch?v= with embed/ to embed the video
-  movie.link.sub!('watch?v=', 'embed/')
-  end%>
+  <% sub_link_address(movie) %>
   <div id='short_movie'>
      <iframe src=<%="#{movie.link}"%> frameborder="0" allowfullscreen></iframe>
   </div>
