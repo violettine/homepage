@@ -1,13 +1,5 @@
 <h1> Cute and funny short Movies </h1>
 
-<div id='short_movie'>
-<iframe src="https://www.youtube.com/embed/Gq0jfzgvvrM" frameborder="0" allowfullscreen></iframe>
-</div>
-<div id='short_movie'>
-<iframe  src="https://www.youtube.com/embed/oIlIVFBBbNw" frameborder="0" allowfullscreen></iframe>
-</div>
-
-
 <% @short_movies.each do |movie| %>
   <% unless movie.link.match(/embed/)
   # replace watch?v= with embed/ to embed the video
