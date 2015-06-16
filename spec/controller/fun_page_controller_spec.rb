@@ -13,12 +13,19 @@ RSpec.describe(FunPageController, type: :controller) do
       expect(response).to render_template('index')
     end
 
-    it 'creates successfully @bubbling_variable' do
+    it 'tests successfully @bubbling_variable' do
       @test_bubbling_variable =
-        ('I am ' + %(w[blue red yellow green purple orange].sample) + '!')
+        ('I am ' + %w[blue red yellow green purple orange].sample + '!')
       get :index
 
       expect(@test_bubbling_variable).to match(
+        /^[I am]{4}.(blue|red|yellow|green|purple|orange)[!]$/)
+    end
+
+    it 'creates successfully @bubbling_variable' do
+      get :index
+
+      expect(assigns[@bubbling_variable]).to match(
         /^[I am]{4}.(blue|red|yellow|green|purple|orange)[!]$/)
     end
   end
