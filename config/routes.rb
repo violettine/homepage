@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
    get 'personal_page/index'
    get 'fun_page/index'
+   get 'social_projects_page/index'
   # See how all your routes lay out with "rake routes".
 
    root 'build_page#index'

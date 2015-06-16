@@ -1,0 +1,2 @@
+class SocialProjectsPageController < ApplicationController
+end
