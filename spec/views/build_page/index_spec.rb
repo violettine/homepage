@@ -15,6 +15,6 @@ RSpec.describe('build_page/index', type: :view) do
 
   it 'displays five links' do 
     render
-    assert_select '<a href', count: 5
+    assert_select "a", count: 5
   end
 end
