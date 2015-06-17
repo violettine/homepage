@@ -3,11 +3,11 @@
 <div>
   Here I am going to try some out and see how its going!
 </div>
-<div>
+<div >
 <p>I am starting with the API from <a href='http://openweathermap.org/api'>OpenWeatherMap</a>.<br>
 At first I have to read the documentation of the API, than I will assign some space in the view for the API and decide how it should look.</p>
 
-  <ol>
+  <ol class='weather_widget_explanation'>
     <li>Sign up for an API key</li>
     <li>Read instructions for the usage carefully.</br> Like: store the requested data and just refresh after 10 min, 'cause the server capacity is limited. Good to know!</li>
     <li>Choose one of the given applications and start implementing it.</li>
@@ -15,11 +15,13 @@ At first I have to read the documentation of the API, than I will assign some sp
 </div>
 
 <div class='weather-widget'>
+<p>
   <h3>City of Berlin, Germany</h3>
-  <img src='http://openweathermap.org/img/w/01d.png'>
-  <h2>some degree </h2>
+  <h2><img src='http://openweathermap.org/img/w/01d.png'>
+      some degree </h2>
+      <%= @weather %>
   clear or maybe not? <p></p>
-  <div id='date'>get at which time?</div>
-
+  <div> get at which time?</div>
+</p>
 </div>
 
