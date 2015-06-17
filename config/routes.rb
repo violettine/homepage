@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'api_page/index'
+
    get 'personal_page/index'
    get 'fun_page/index'
   # See how all your routes lay out with "rake routes".
