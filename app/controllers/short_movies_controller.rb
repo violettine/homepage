@@ -3,15 +3,15 @@ class ShortMoviesController < ApplicationController
     @short_movies = ShortMovie.all
   end
 
-  def create
-    @short_movie = ShortMovie.new(short_movies_require)
+  # def create
+  #   @short_movie = ShortMovie.new(short_movies_require)
 
-    if @short_movie.save
-      puts 'Video saved!'
-    else
-      puts 'Video not saved!'
-    end
-  end
+  #   if @short_movie.save
+  #     puts 'Video saved!'
+  #   else
+  #     puts 'Video not saved!'
+  #   end
+  # end
 
   private
 
