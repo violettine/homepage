@@ -43,11 +43,14 @@ module ApiPageHelper
     end
   end
 
+  def weather_pic(curr_weather_data)
+    # add diff weather cases to the pisc from openweathermap.org
+    @weather_pic = 'http://openweathermap.org/img/w/01d.png'
+  end
+
   def get_weather_data(curr_weather_data)
-    # @tempCelsius = (curr_weather_data    .to_f - 273.15).round(1)
-    # @clouds =
+    weather_pic(curr_weather_data)
     @temp = ((curr_weather_data['main']['temp']).to_f - 273.15).round(1)
-    @all_data = curr_weather_data
     @city = curr_weather_data['name']
     sky_view(curr_weather_data)
     @time = Time.now # change this part!!
@@ -59,5 +62,3 @@ module ApiPageHelper
     get_weather_data(@curr_weather_data)
   end
 end
-
-

@@ -1,7 +1,7 @@
 <h1>API stands for <i>a</i>pplication <i>p</i>rogramming <i>i</i>nterface</h1>
 
 <div>
-  Here I am going to try some out and see how its going!
+  Here I am going to try some APIs out and see how its going!
 </div>
 <div >
 <p>I am starting with the API from <a href='http://openweathermap.org/api'>OpenWeatherMap</a>.<br>
@@ -18,7 +18,7 @@ At first I have to read the documentation of the API, than I will assign some sp
   <p>
     <% get_current_weather('hamburg') %>
     <h3>City of <%= @city %></h3>
-    <h2><img src='http://openweathermap.org/img/w/01d.png'>
+    <h2><img src= <%= @weather_pic %> >
       <%= @temp %> °C</h2>
     <%= @sky_view %> <p></p>
     <%= @time %> <p></p>
