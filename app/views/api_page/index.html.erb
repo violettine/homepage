@@ -21,7 +21,7 @@ At first I have to read the documentation of the API, than I will assign some sp
     <h2><img src= <%= @weather_pic %> >
       <%= @temp %> °C</h2>
     <%= @sky_view %> <p></p>
-    <%= @time %> <p></p>
+    <%= @time.strftime("get at %H:%M on %D") %> <p></p>
   </p>
 </div>
 
