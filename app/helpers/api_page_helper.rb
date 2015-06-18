@@ -1,27 +1,29 @@
 module ApiPageHelper
   # ask for current_weather
   def get_current_weather(city='berlin')
+    # Rails.cache.clear
     exists_weather_of(city)
     #get_weather(city)
-    get_weather_data(Rails.cache.fetch('weather'))
+    get_weather_data(Rails.cache.fetch('curr_weather'))
   end
 
   def exists_weather_of(city)
-    if Rails.cache.fetch('weather')
-      # curr_weather_data = 'weather
-    else
-      #if data_fresh? # && (city==old_city)
-      #  use_db
-      #else
-      get_weather(city)
-      #end
-    end
+      if Rails.cache.fetch('curr_weather')
+        # curr_weather_data = 'weather
+        test = Rails.cache.fetch('curr_weather')
+        if test['name'] == city.capitalize
+        else
+          get_weather(city)
+        end
+      else
+        get_weather(city)
+      end
   end
 
   def get_weather(city)
     data = open('http://api.openweathermap.org/data/2.5/weather?q='+city)
-    @curr_weather_data=JSON.parse(data.read)
-    if @curr_weather_data['message']
+    curr_weather_data=JSON.parse(data.read)
+    if curr_weather_data['message']
       puts 'time for a problem!'
       puts''
       puts''
@@ -29,17 +31,7 @@ module ApiPageHelper
       puts''
       # need flash_message
     else
-      Rails.cache.fetch('weather'){
-        @curr_weather_data
-      }
-    end
-  end
-
-  def data_fresh?
-    if(weather_data.updated_at < 10.minutes)
-      true
-    else
-      false
+      Rails.cache.write('curr_weather', curr_weather_data, expires_in: 10.minute)
     end
   end
 
