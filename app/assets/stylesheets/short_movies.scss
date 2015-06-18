@@ -1,0 +1,15 @@
+// Place all the styles related to the short_movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#short_movie {
+  width: 427px;
+  height: 250px;
+  float: left;
+  padding: 10px;
+}
+
+iframe{
+  width:100%;
+  height:100%;
+}
