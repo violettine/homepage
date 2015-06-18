@@ -15,14 +15,13 @@ At first I have to read the documentation of the API, than I will assign some sp
 </div>
 
 <div class='weather-widget'>
-<p>
-  <h3>City of Berlin, Germany</h3>
-  <h2><img src='http://openweathermap.org/img/w/01d.png'>
-      some degree </h2>
-      <%getJson('hamburg')%>
-      <%= @weather %>
-  clear or maybe not? <p></p>
-  <div> get at which time?</div>
-</p>
+  <p>
+    <% get_current_weather('hamburg') %>
+    <h3>City of <%= @city %></h3>
+    <h2><img src='http://openweathermap.org/img/w/01d.png'>
+      <%= @temp %> °C</h2>
+    <%= @sky_view %> <p></p>
+    <%= @time %> <p></p>
+  </p>
 </div>
 
