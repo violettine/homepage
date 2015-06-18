@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PersonalPageControllerTest < ActionController::TestCase
+class ShortMovieTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

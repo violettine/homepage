@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ShortMovie.create('link' => 'https://www.youtube.com/embed/Gq0jfzgvvrM')
+ShortMovie.create('link' => 'https://www.youtube.com/embed/o2YVIAblybM')
+ShortMovie.create('link' => 'https://www.youtube.com/embed/-a6Pe1ovKHg')
+ShortMovie.create('link' => 'https://www.youtube.com/embed/mBlv-eV7lek')
+ShortMovie.create('link' => 'https://www.youtube.com/embed/oIlIVFBBbNw')
