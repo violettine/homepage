@@ -1,4 +1,23 @@
 module ApiPageHelper
+  # ask for current_weather
+  def get_current_weather(city='berlin')
+    exists_weather_of(city)
+    #get_weather(city)
+    get_weather_data(Rails.cache.fetch('weather'))
+  end
+
+  def exists_weather_of(city)
+    if Rails.cache.fetch('weather')
+      # curr_weather_data = 'weather
+    else
+      #if data_fresh? # && (city==old_city)
+      #  use_db
+      #else
+      get_weather(city)
+      #end
+    end
+  end
+
   def get_weather(city)
     data = open('http://api.openweathermap.org/data/2.5/weather?q='+city)
     @curr_weather_data=JSON.parse(data.read)
@@ -10,11 +29,13 @@ module ApiPageHelper
       puts''
       # need flash_message
     else
-      # curr_weather_data.save
+      Rails.cache.fetch('weather'){
+        @curr_weather_data
+      }
     end
   end
 
-  def data_fresh
+  def data_fresh?
     if(weather_data.updated_at < 10.minutes)
       true
     else
@@ -22,16 +43,13 @@ module ApiPageHelper
     end
   end
 
-  def have_weather_of(city)
-    if have_no_weather_in_db
-      get_weather(city)
-    else
-      if(city==old_city) && data_fresh?
-        use_db
-      else
-        get_weather(city)
-      end
-    end
+  # from here on get all data out of json(curr_weather_data)
+  def get_weather_data(curr_weather_data)
+    weather_pic(curr_weather_data)
+    @temp = ((curr_weather_data['main']['temp']).to_f - 273.15).round(1)
+    @city = curr_weather_data['name']
+    sky_view(curr_weather_data)
+    @time = Time.now # change this part!!
   end
 
   def sky_view(curr_weather_data)
@@ -46,19 +64,5 @@ module ApiPageHelper
   def weather_pic(curr_weather_data)
     # add diff weather cases to the pisc from openweathermap.org
     @weather_pic = 'http://openweathermap.org/img/w/01d.png'
-  end
-
-  def get_weather_data(curr_weather_data)
-    weather_pic(curr_weather_data)
-    @temp = ((curr_weather_data['main']['temp']).to_f - 273.15).round(1)
-    @city = curr_weather_data['name']
-    sky_view(curr_weather_data)
-    @time = Time.now # change this part!!
-  end
-
-  def get_current_weather(city='berlin')
-    # have_weather_of(city)
-    get_weather(city)
-    get_weather_data(@curr_weather_data)
   end
 end
