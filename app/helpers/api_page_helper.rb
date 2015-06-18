@@ -3,13 +3,11 @@ module ApiPageHelper
   def get_current_weather(city='berlin')
     # Rails.cache.clear
     exists_weather_of(city)
-    #get_weather(city)
     get_weather_data(Rails.cache.fetch('curr_weather'))
   end
 
   def exists_weather_of(city)
       if Rails.cache.fetch('curr_weather')
-        # curr_weather_data = 'weather
         test = Rails.cache.fetch('curr_weather')
         if test['name'] == city.capitalize
         else
