@@ -7,20 +7,20 @@ module ApiPageHelper
   end
 
   def exists_weather_of(city)
-      if Rails.cache.fetch('curr_weather')
-        test = Rails.cache.fetch('curr_weather')
-        if test['name'] == city.capitalize
-        else
-          get_weather(city)
-        end
+    if Rails.cache.fetch('curr_weather')
+      test = Rails.cache.fetch('curr_weather')
+      if test['name'] == city.capitalize
       else
         get_weather(city)
       end
+    else
+      get_weather(city)
+    end
   end
 
   def get_weather(city)
     data = open('http://api.openweathermap.org/data/2.5/weather?q='+city)
-    curr_weather_data=JSON.parse(data.read)
+    curr_weather_data = JSON.parse(data.read)
     if curr_weather_data['message']
       puts 'time for a problem!'
       puts''
@@ -44,8 +44,8 @@ module ApiPageHelper
 
   def sky_view(curr_weather_data)
     all_clouds_number = curr_weather_data['clouds']['all']
-    if all_clouds_number ==0
-      @sky_view= 'sky is clear'
+    if all_clouds_number == 0
+      @sky_view = 'sky is clear'
     else
       @sky_view = 'sky is not clear'
     end

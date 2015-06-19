@@ -7,18 +7,4 @@ At first I have to read the documentation of the API, than I will assign some sp
     <li>Choose one of the given applications and start implementing it.</li>
   </ol></p>
 <p>
-<div class='weather-widget'>
-  <p>
-    Change city: 
-  <input id="q" name="q" type="text" class="form-control border-color col-sm-12" onfocus="this.value = (this.value=='London, UK')? '' : this.value;" placeholder="Your city name" data-original-title="" title=""></br>
-  <button type="submit" class="btn btn-orange"><i class="fa fa-question-circle"></i> Search</button>
-  </p>
-  <p>
-    <% get_current_weather('hamburg') %>
-    <h3>City of <%= @city %></h3>
-    <h2><img src= <%= @weather_pic %> >
-      <%= @temp %> °C</h2>
-    <%= @sky_view %> <p></p>
-    <%= @time.strftime("get at %H:%M on %D") %> <p></p>
-  </p>
-</div>
+<%= render 'get_curr_weather' %>
