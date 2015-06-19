@@ -11,9 +11,12 @@
 
   #header_left{
     float:left;
+    list-style: none;
   }
   #header_right{
     float:right;
+    margin-right: 15px;
+    list-style: none;
   }
 }
 
@@ -39,7 +42,7 @@
 }
 
 .yield{
-  padding-top:60px;
+  padding-top:120px;
   overflow: scroll;
   margin-bottom: 60px;
 }
