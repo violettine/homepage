@@ -27,7 +27,7 @@ module ApiPageHelper
       puts''
       puts''
       puts''
-      # need flash_message
+      # need flash_message afterwards delete puts!
     else
       Rails.cache.write('curr_weather', curr_weather_data, expires_in: 10.minute)
     end
