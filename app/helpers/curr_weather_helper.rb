@@ -1,4 +1,4 @@
-module WeatherHelper
+module CurrWeatherHelper
   # from here on get all data out of json(curr_weather_data)
   def get_weather_data(curr_weather_data)
     weather_pic(curr_weather_data)

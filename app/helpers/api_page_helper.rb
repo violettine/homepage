@@ -1,6 +1,6 @@
 module ApiPageHelper
   # ask for current_weather
-  def get_weather(city='berlin')
+  def get_weather(city='berlin', api_id)
     # Rails.cache.clear
     exists_weather_of(city)
     get_weather_data(Rails.cache.fetch('curr_weather'))
@@ -27,12 +27,7 @@ module ApiPageHelper
 
     weather_data = JSON.parse(data.read)
     if weather_data['message']
-      puts 'time for a problem!'
-      puts''
-      puts''
-      puts''
-      puts''
-      # need flash_message afterwards delete puts!
+      # need flash_message here!
     else
       if api_id == 1
         Rails.cache.write('curr_weather', weather_data, expires_in: 10.minute)
