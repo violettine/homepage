@@ -1,0 +1,16 @@
+
+<div class='weather-widget'>
+  <% params[:q] ? get_current_weather(params[:q]) : get_current_weather %>
+
+  <h3 style='margin-top:0px'>City of <%= @city %></h3>
+  <h2><img src= <%= @weather_pic %> >
+  <%= @temp %> °C</h2>
+  <%= @sky_view %> <p></p>
+  <%= @time.strftime("get at %H:%M on %D") %> <p></p>
+
+  <form>
+    Change city:
+    <input type="text" name="q" placeholder="Your city name"></br>
+    <button> Search </button>
+  </form>
+</div>
