@@ -1,7 +1,7 @@
 <div class='weather-widget'>
   <% params[:curr] ? get_weather(params[:curr],1) : get_weather(1) %>
 
-  <h3 style='margin-top:0px'>City of <%= @city %></h3>
+  <h3 style='margin-top:0px'>City of <%= @curr_city %></h3>
   <h2><img src= <%= @weather_pic %> >
   <%= @temp %> °C</h2>
   <%= @sky_view %> <p></p>
