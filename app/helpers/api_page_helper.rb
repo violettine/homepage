@@ -31,7 +31,7 @@ module ApiPageHelper
     data = if api_id == 1
         open('http://api.openweathermap.org/data/2.5/weather?q='+city)
       elsif api_id == 2
-        open('http://api.openweathermap.org/data/2.5/forecast?q='+city)
+        open('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&q='+city)
       end
 
     weather_data = JSON.parse(data.read)

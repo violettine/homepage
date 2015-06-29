@@ -13,5 +13,10 @@
   <%= @date %>
   <hr>
   <%= @all_data %>
+  <hr>
 
+  <%= content_tag :div, class: "temp_information", data: {temp: @all_data} do %>
+  <% end %>
+
+  <%= javascript_include_tag 'call_draw_daily_chart' %>
 </div>

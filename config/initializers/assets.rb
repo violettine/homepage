@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( bubbles.js )
 Rails.application.config.assets.precompile += %w( bubbles_main.js )
 Rails.application.config.assets.precompile += %w( bubbles_main_google.js )
+Rails.application.config.assets.precompile += %w( call_draw_daily_chart.js )
