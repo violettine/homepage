@@ -1,12 +1,13 @@
 module ApiPageHelper
   # ask for current_weather
-  def get_weather(city='berlin', api_id)
+  def get_weather(city = 'berlin', api_id)
     # Rails.cache.clear
     if api_id == 1
       cache_name = 'curr_weather'
     elsif api_id == 2
       cache_name = 'forecast_weather'
     end
+
     exists_weather_of(city, api_id, cache_name)
     if api_id == 1
       get_curr_weather_data(Rails.cache.fetch('curr_weather'))
@@ -29,9 +30,9 @@ module ApiPageHelper
 
   def get_curr_or_forecast_weather(city, api_id)
     data = if api_id == 1
-        open('http://api.openweathermap.org/data/2.5/weather?q='+city)
+        open('http://api.openweathermap.org/data/2.5/weather?q=' + city)
       elsif api_id == 2
-        open('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&q='+city)
+        open('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&q=' + city)
       end
 
     weather_data = JSON.parse(data.read)
