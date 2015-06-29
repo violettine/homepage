@@ -9,7 +9,3 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( bubbles.js )
-Rails.application.config.assets.precompile += %w( bubbles_main.js )
-Rails.application.config.assets.precompile += %w( bubbles_main_google.js )
-Rails.application.config.assets.precompile += %w( call_draw_daily_chart.js )

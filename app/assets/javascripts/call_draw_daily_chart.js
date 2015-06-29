@@ -1,5 +1,5 @@
-var d_string = $('.temp_information').data('temp');
-//var myName = $('meta[bubbling=bubbling_variable]').attr('content');
-d_json = JSON.parse(d_string);
-daily = d_json.list;
-showDailyChart(daily);
+$(function(){ //the same as $(document).ready
+  var d = $('.temp_information').data('temp');
+  daily = d.list;
+  showDailyChart(daily);
+})
