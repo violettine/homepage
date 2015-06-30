@@ -1,7 +1,6 @@
 function showDailyChart(daily)
 {
   var time_zone = 1000 * (new Date().getTimezoneOffset())*(-60);
-
   var time = new Array();
   var tmp = new Array();
   var tmpr = new Array();
@@ -10,12 +9,12 @@ function showDailyChart(daily)
 
   for(var i = 0; i < daily.length-1; i ++){
 
-    tmp.push( Math.round(10*(daily[i].temp.day))/10);
+    tmp.push( Math.round(10*(daily[i].temp.day/10))/10);
     var dt = new Date( daily[i].dt * 1000 + time_zone);
     time.push( dt );
 
-    var tmpi =  Math.round(10*(daily[i].temp.min))/10 ;
-    var tmpa =  Math.round(10*(daily[i].temp.max))/10 ;
+    var tmpi =  Math.round(10*(daily[i].temp.min/10))/10 ;
+    var tmpa =  Math.round(10*(daily[i].temp.max/10))/10 ;
     tmpr.push( [tmpi, tmpa ] );
 
     if(daily[i]['rain'])  {
@@ -53,7 +52,7 @@ function showDailyChart(daily)
         }
       },
       title: {
-        text: NaN,
+        text: 'Temp',
         style: {
           color: 'blue'
         }
@@ -67,7 +66,7 @@ function showDailyChart(daily)
       },
       opposite: true,
       title: {
-        text: NaN,
+        text: 'Precipitation',
         style: {
           color: '#4572A7'
         }
@@ -93,12 +92,14 @@ function showDailyChart(daily)
         stacking: 'normal'
       }
     },
-    //legend: NaN,
+    legend: {
+      NaN
+    },
     series: [
     {
       name: 'Snow',
       type: 'column',
-      color: '#909090',
+      color: 'lightgrey',
       yAxis: 1,
       data: snow,
       stack: 'precipitation'
@@ -106,7 +107,7 @@ function showDailyChart(daily)
     {
       name: 'Rain',
       type: 'column',
-      color: '#B0B0B0',
+      color: 'lightblue',
       yAxis: 1,
       data: rain,
       stack: 'precipitation'

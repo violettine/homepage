@@ -29,14 +29,15 @@ module ApiPageHelper
   end
 
   def get_curr_or_forecast_weather(city, api_id)
+    forecast_range = '12'
     data = if api_id == 1
         open('http://api.openweathermap.org/data/2.5/weather?q=' + city)
       elsif api_id == 2
-        open('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&q=' + city)
+        open('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=' + forecast_range + '&q=' + city)
       end
 
     weather_data = JSON.parse(data.read)
-    if weather_data['message'] == ''
+    if weather_data['message'] == '' || weather_data['message'] == "Error: Not found city"
       # need flash_message here!
     else
       if api_id == 1
