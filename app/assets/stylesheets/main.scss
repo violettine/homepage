@@ -1,0 +1,48 @@
+/*header*/
+
+.header{
+  padding-top: 15px;
+  background-color: lightgray;
+  border-bottom: 1px solid gray;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+
+  #header_left{
+    float:left;
+    list-style: none;
+  }
+  #header_right{
+    float:right;
+    margin-right: 15px;
+    list-style: none;
+  }
+}
+
+/*footer*/
+
+.footer{
+  background-color: gray;
+  margin-top: 45px;
+  padding-top:5px;
+  border-top: 1px solid gray;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  ul{
+    float:right;
+    list-style:none;
+    li{
+      float:left;
+      margin-right:15px;
+    }
+  }
+}
+
+.yield{
+  padding-top:120px;
+  overflow: scroll;
+  margin-bottom: 60px;
+}

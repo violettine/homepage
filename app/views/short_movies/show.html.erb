@@ -1,0 +1,8 @@
+<h1> Cute and funny short Movies </h1>
+
+<% @short_movies.each do |movie| %>
+  <% sub_link_address(movie) %>
+  <div id='short_movie'>
+     <iframe src=<%="#{movie.link}"%> frameborder="0" allowfullscreen></iframe>
+  </div>
+<%end%>
