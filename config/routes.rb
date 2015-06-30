@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  
   get 'api_page/index'
-
-   get 'personal_page/index'
-   get 'fun_page/index'
+  get 'personal_page/index'
+  get 'fun_page/index'
   # See how all your routes lay out with "rake routes".
-
-   root 'build_page#index'
+  root 'build_page#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

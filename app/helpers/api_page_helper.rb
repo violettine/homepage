@@ -38,7 +38,7 @@ module ApiPageHelper
 
     weather_data = JSON.parse(data.read)
     if weather_data['message'] == '' || weather_data['message'] == "Error: Not found city"
-      # need flash_message here!
+      # flash[:alert] = "Could not find the city! Please check the spelling."
     else
       if api_id == 1
         Rails.cache.write('curr_weather', weather_data, expires_in: 10.minute)
