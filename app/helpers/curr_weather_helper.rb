@@ -10,7 +10,7 @@ module CurrWeatherHelper
 
   def cloud_view(curr_weather_data)
     all_clouds_number = curr_weather_data['clouds']['all']
-    if all_clouds_number == 0
+    if all_clouds_number.zero?
       @sky_view = 'sky is clear'
     else
       @sky_view = 'sky is not clear'
