@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
+  gem 'guard-rspec', require: false
+
   gem 'rspec-rails', '~> 3.0'
 
 	# Use sqlite3 as the database for Active Record
