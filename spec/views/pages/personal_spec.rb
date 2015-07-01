@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe('personal_page/index', type: :view) do
+RSpec.describe('pages/personal', type: :view) do
   it 'displays a h1 header' do
     render
     assert_select 'h1'

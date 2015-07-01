@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe('build_page/index', type: :view) do
+RSpec.describe('pages/build', type: :view) do
   it 'displays two divs' do
     render
     assert_select 'div',  count: 2
@@ -15,6 +15,6 @@ RSpec.describe('build_page/index', type: :view) do
 
   it 'displays five links' do
     render
-    assert_select 'a', count: 5
+    assert_select 'a', count: 6
   end
 end
