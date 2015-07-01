@@ -7,9 +7,14 @@
   <%= @sky_view %> <p></p>
   <%= @time.strftime("get at %H:%M on %D") %> <p></p>
 
-  <form>
+<!--   <form>
     Change city:
     <input type="text" name="curr" placeholder="Your city name"></br>
     <button> Search </button>
-  </form>
+  </form> -->
+  <%= form_for(:curr, html: {multipart: true}, method: 'get') do |f| %>
+    Change city:
+    <%= f.text_field :city %><br>
+    <%= f.submit 'Search' %>
+  <% end %>
 </div>

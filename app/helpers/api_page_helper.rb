@@ -19,15 +19,15 @@ module ApiPageHelper
   def exists_weather_of(city, api_id, cache_name)
     if Rails.cache.fetch(cache_name)
       test = Rails.cache.fetch(cache_name)
-      if test['name'] == city.capitalize
-      else
-        # get_curr_or_forecast_weather(city, api_id)
-        WeatherResponse.get_weather_data
-      end
-    else
-      # get_curr_or_forecast_weather(city, api_id)
-      WeatherResponse.get_weather_data
-    end
+     # if test['name'] == city.capitalize
+    #   else
+    #     # get_curr_or_forecast_weather(city, api_id)
+    #     WeatherResponse.get_weather_data(city)
+    #   end
+    # else
+    #   # get_curr_or_forecast_weather(city, api_id)
+      WeatherResponse.get_weather_data(city)
+     end
   end
 
   # def get_curr_or_forecast_weather(city, api_id)
