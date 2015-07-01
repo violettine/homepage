@@ -12,5 +12,12 @@ RSpec.describe(ShortMoviesController, type: :controller) do
       get :show
       expect(response).to render_template('show')
     end
+
+    it 'loads all possible short movies in @short_movies' do
+      @short_movies = ShortMovie.all
+
+      get :show
+      expect(assigns(:short_movies)).to match(@short_movies)
+    end
   end
 end

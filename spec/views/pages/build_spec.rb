@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe('pages/build.html.erb', type: :view) do
+RSpec.describe('pages/build', type: :view) do
   it 'displays two divs' do
     render
     assert_select 'div',  count: 2

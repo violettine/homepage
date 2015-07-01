@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe('pages/social_projects.html.erb', type: :view) do
+RSpec.describe('pages/social_projects', type: :view) do
   it 'displays a h1 header' do
     render
     assert_select 'h1'
