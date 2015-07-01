@@ -24,10 +24,10 @@ module ApiPageHelper
     #     # get_curr_or_forecast_weather(city, api_id)
     #     WeatherResponse.get_weather_data(city)
     #   end
-    # else
+    else
     #   # get_curr_or_forecast_weather(city, api_id)
       WeatherResponse.get_weather_data(city)
-     end
+    end
   end
 
   # def get_curr_or_forecast_weather(city, api_id)

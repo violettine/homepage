@@ -6,11 +6,17 @@ class ApiPageController < ApplicationController
 
   def index
     if params[:curr]
-      city = params[:curr][:city]
+      curr_city = params[:curr][:city]
     else
-      city = 'London'
+      curr_city = 'London'
     end
 
-    WeatherResponse.get_weather_data(city)
+    WeatherResponse.get_weather_data(curr_city)
+
+    if params[:forecast]
+      forecast_city = params[:forecast][:city]
+    else
+      forecast_city = 'London'
+    end
   end
 end
