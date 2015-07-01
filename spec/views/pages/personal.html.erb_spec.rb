@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "pages/personal.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe('pages/personal.html.erb', type: :view) do
+  it 'displays a h1 header' do
+    render
+    assert_select 'h1'
+  end
+
+  it 'displays one link' do
+    render
+    assert_select 'a', count: 1
+  end
 end
