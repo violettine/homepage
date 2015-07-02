@@ -2,7 +2,7 @@ require 'open-uri'
 require 'json'
 require 'weather_response'
 
-class ApiPageController < ApplicationController
+class WeatherController < ApplicationController
 
   def index
     if params[:curr]
