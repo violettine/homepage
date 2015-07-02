@@ -1,15 +1,18 @@
 class WeatherResponse
-
   # need 'self.' here, so that i can use the method everywhere; class method
-  def self.get_weather
-    @curr_city = params[:curr][:city]
-    @forecast_city = params[:forecast][:city]
-    exists_weather?
-    get_curr_weather_data(Rails.cache.fetch('curr_weather'))
-    get_forecast_weather_data(Rails.cache.fetch('forecast_weather'))
+  def self.get_weather(params = {})
+    puts '...............................response....'
+
+    @curr_city = params[:curr_city]
+    @forecast_city = params[:forecast_city]
+    self.exists_weather?
+    CurrWeatherHelper.get_curr_weather_data(Rails.cache.fetch('curr_weather'))
+    ForecastWeatherHelper.get_forecast_weather_data(Rails.cache.fetch('forecast_weather'))
   end
 
-  def exists_weather?
+  def self.exists_weather?
+    puts '...............................exists?'
+    Rails.cache.clear
     if Rails.cache.fetch('curr_weather') && Rails.cache.fetch('forecast_weather')
       #test = Rails.cache.fetch(cache_name)
      # if test['name'] == city.capitalize
@@ -19,11 +22,12 @@ class WeatherResponse
     #   end
     else
     #   # get_curr_or_forecast_weather(city, api_id)
-      WeatherResponse.get_weather_data
+      self.get_weather_data
     end
   end
 
-  def get_weather_data
+  def self.get_weather_data
+    puts '...............................data!'
     forecast_period = '12'
     curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
     forecast_response = 
