@@ -1,6 +1,6 @@
 <div class='weather-widget'>
 
-  <h3 style='margin-top:0px'>Forecast for <%= @forecast_city %></h3>
+  <h3 style='margin-top:0px'>Forecast for <%= forecast_city(@forecast_data) %></h3>
 
   <%= form_for(:forecast, html: {multipart: true}) do |f| %>
     Change city:
@@ -8,7 +8,7 @@
     <%= f.submit 'Search' %>
   <% end %>
 
-  <%= content_tag :div, class: 'temp_information', data: {temp: @all_data} do %>
+  <%= content_tag :div, class: 'temp_information', data: {temp: @forecast_data} do %>
   <% end %>
 
   <div id='chart'>

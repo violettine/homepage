@@ -1,10 +1,11 @@
 <div class='weather-widget'>
 
-  <h3 style='margin-top:0px'>Current weather of <%= @curr_city %></h3>
-  <h2><img src= <%= @weather_pic %> >
-  <%= @temp %> °C</h2>
-  <%= @sky_view %> <p></p>
-  <%#= @time.strftime("get at %H:%M on %D") %> <p></p>
+  <h3 style='margin-top:0px'>
+  Current weather of <%= curr_city(@curr_data) %></h3>
+  <h2><img src= <%= weather_pic(@curr_data) %> >
+  <%= temperature(@curr_data) %> °C</h2>
+  <%= cloud_view(@curr_data) %> <p></p>
+  <%= time %> <p></p>
 
   <%= form_for(:curr, html: {multipart: true}) do |f| %>
     Change city:

@@ -1,5 +1,3 @@
-# require 'open-uri'
-# require 'json'
 require 'weather_response'
 
 class ApiController < ApplicationController
@@ -23,6 +21,6 @@ class ApiController < ApplicationController
       flash[:alert] = 'Please try again, I didn\'t get what you want..'
     end
 
-    WeatherResponse.get_weather(params)
+    @curr_data, @forecast_data = WeatherResponse.get_weather(params)
   end
 end
