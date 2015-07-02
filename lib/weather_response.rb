@@ -22,11 +22,11 @@ class WeatherResponse
     #   end
     else
     #   # get_curr_or_forecast_weather(city, api_id)
-      self.get_weather_data
+      self.get_weather_api_data
     end
   end
 
-  def self.get_weather_data
+  def self.get_weather_api_data
     puts '...............................data!'
     forecast_period = '12'
     curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
@@ -36,10 +36,10 @@ class WeatherResponse
 
     curr_data = JSON.parse(curr_response.body)
     forecast_data = JSON.parse(forecast_response.body)
-
     if curr_response.message == '' || forecast_response.message == "Error: Not found city"
       flash[:alert] = "Could not find the city! Please check the spelling."
     else
+      puts '...............................caching...'
       Rails.cache.write('curr_weather', curr_data, expires_in: 10.minute)
       Rails.cache.write('forecast_weather', forecast_data, expires_in: 10.minute)
     end
