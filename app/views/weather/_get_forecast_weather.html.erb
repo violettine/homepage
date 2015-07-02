@@ -2,7 +2,7 @@
 
   <h3 style='margin-top:0px'>Forecast for <%= @forecast_city %></h3>
 
-  <%= form_for(:forecast, html: {multipart: true}, method: 'get') do |f| %>
+  <%= form_for(:forecast, html: {multipart: true}) do |f| %>
     Change city:
     <%= f.text_field :city %><br>
     <%= f.submit 'Search' %>
