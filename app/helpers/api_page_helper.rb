@@ -1,34 +1,34 @@
 module ApiPageHelper
   # ask for current_weather
-  def get_weather(city = 'berlin', api_id)
-    # Rails.cache.clear
-    if api_id == 1
-      cache_name = 'curr_weather'
-    elsif api_id == 2
-      cache_name = 'forecast_weather'
-    end
+  # def get_weather(city = 'berlin', api_id)
+  #   # Rails.cache.clear
+  #   if api_id == 1
+  #     cache_name = 'curr_weather'
+  #   elsif api_id == 2
+  #     cache_name = 'forecast_weather'
+  #   end
 
-    exists_weather_of(city, api_id, cache_name)
-    if api_id == 1
-      get_curr_weather_data(Rails.cache.fetch('curr_weather'))
-    elsif api_id == 2
-      get_forecast_weather_data(Rails.cache.fetch('forecast_weather'))
-    end
-  end
+  #   exists_weather_of(city, api_id, cache_name)
+  #   if api_id == 1
+  #     get_curr_weather_data(Rails.cache.fetch('curr_weather'))
+  #   elsif api_id == 2
+  #     get_forecast_weather_data(Rails.cache.fetch('forecast_weather'))
+  #   end
+  # end
 
-  def exists_weather_of(city, api_id, cache_name)
-    if Rails.cache.fetch(cache_name)
-      test = Rails.cache.fetch(cache_name)
-     # if test['name'] == city.capitalize
-    #   else
-    #     # get_curr_or_forecast_weather(city, api_id)
-    #     WeatherResponse.get_weather_data(city)
-    #   end
-    else
-    #   # get_curr_or_forecast_weather(city, api_id)
-      WeatherResponse.get_weather_data(city)
-    end
-  end
+  # def exists_weather_of(city, api_id, cache_name)
+  #   if Rails.cache.fetch(cache_name)
+  #     test = Rails.cache.fetch(cache_name)
+  #    # if test['name'] == city.capitalize
+  #   #   else
+  #   #     # get_curr_or_forecast_weather(city, api_id)
+  #   #     WeatherResponse.get_weather_data(city)
+  #   #   end
+  #   else
+  #   #   # get_curr_or_forecast_weather(city, api_id)
+  #     WeatherResponse.get_weather_data(city)
+  #   end
+  # end
 
   # def get_curr_or_forecast_weather(city, api_id)
   #   forecast_range = '12'
