@@ -1,6 +1,6 @@
 # require 'open-uri'
 # require 'json'
- require 'weather_response'
+require 'weather_response'
 
 class ApiController < ApplicationController
   def index

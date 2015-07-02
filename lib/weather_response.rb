@@ -6,8 +6,6 @@ class WeatherResponse
     @curr_city = params[:curr_city]
     @forecast_city = params[:forecast_city]
     self.exists_weather?
-    CurrWeatherHelper.get_curr_weather_data(Rails.cache.fetch('curr_weather'))
-    ForecastWeatherHelper.get_forecast_weather_data(Rails.cache.fetch('forecast_weather'))
   end
 
   def self.exists_weather?
@@ -26,7 +24,7 @@ class WeatherResponse
     end
   end
 
-  def self.get_weather_api_data
+  def self.get_weather_api_data# params direkt übergeben
     puts '...............................data!'
     forecast_period = '12'
     curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
