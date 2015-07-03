@@ -1,10 +1,11 @@
 class WeatherResponse
   # need 'self.' here, so that i can use the method everywhere; class method
   def self.get_weather(params = {})
+    @existent_city = true
     @curr_city = params[:curr_city]
     @forecast_city = params[:forecast_city]
     self.exists_weather?
-    return Rails.cache.fetch('curr_weather'), Rails.cache.fetch('forecast_weather')
+    return Rails.cache.fetch('curr_weather'), Rails.cache.fetch('forecast_weather'), @existent_city
   end
 
   def self.exists_weather?
@@ -31,6 +32,7 @@ class WeatherResponse
         forecast_period + '&q=' + @forecast_city)
 
     if(curr_response['cod'] == '404' || forecast_response['cod'] == '404')
+      @existent_city = false
       @curr_city = 'london'
       @forecast_city = 'london'
       self.get_weather_api_data
