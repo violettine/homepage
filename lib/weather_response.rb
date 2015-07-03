@@ -9,22 +9,26 @@ class WeatherResponse
   end
 
   def self.exists_weather?
-    Rails.cache.clear
-    if Rails.cache.fetch('curr_weather') && Rails.cache.fetch('forecast_weather')
-
-      #test = Rails.cache.fetch(cache_name)
-     # if test['name'] == city.capitalize
-    #   else
-    #     # get_curr_or_forecast_weather(city, api_id)
-    #     WeatherResponse.get_weather_data(city)
-    #   end
-    else
-    #   # get_curr_or_forecast_weather(city, api_id)
+    # Rails.cache.clear
+    unless Rails.cache.fetch('curr_weather') && Rails.cache.fetch('forecast_weather')
+      self.get_weather_api_data
+    end
+    unless self.same_curr_city?('curr_weather') && self.same_forecast_city?('forecast_weather')
       self.get_weather_api_data
     end
   end
 
-  def self.get_weather_api_data# params direkt übergeben
+  def self.same_curr_city?(cache_name)
+    test = Rails.cache.fetch(cache_name)
+    ((test['name']).eql?(@curr_city.capitalize))
+  end
+
+  def self.same_forecast_city?(cache_name)
+    test = Rails.cache.fetch(cache_name)
+    (test['city']['name'].eql?(@forecast_city.capitalize))
+  end
+
+  def self.get_weather_api_data
     forecast_period = '12'
     curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
     forecast_response = 
