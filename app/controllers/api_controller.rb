@@ -15,10 +15,9 @@ class ApiController < ApplicationController
     else
       params[:curr_city] = 'London'
       params[:forecast_city] = 'London'
-
       puts 'nothing..'
       puts '/////////////////////////'
-      flash[:alert] = 'Please try again, I didn\'t get what you want..'
+      flash.now[:alert] = 'Please try again, I didn\'t get what you want..'
     end
 
     @curr_data, @forecast_data = WeatherResponse.get_weather(params)

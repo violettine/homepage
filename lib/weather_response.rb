@@ -32,7 +32,7 @@ class WeatherResponse
     curr_data = JSON.parse(curr_response.body)
     forecast_data = JSON.parse(forecast_response.body)
     if curr_response.message == '' || forecast_response.message == "Error: Not found city"
-      flash[:alert] = "Could not find the city! Please check the spelling."
+      flash.now[:error] = "Could not find your city! Please check the spelling."
     else
       Rails.cache.write('curr_weather', curr_data, expires_in: 10.minute)
       Rails.cache.write('forecast_weather', forecast_data, expires_in: 10.minute)
