@@ -14,7 +14,6 @@ class ApiController < ApplicationController
 
     @curr_data, @forecast_data, city_exists = WeatherResponse.get_weather(params)
 
-    (flash.now[:alert] = "Could not find your city! Please check the spelling.") 
-      unless city_exists
+    (flash.now[:alert] = "Could not find your city! Please check the spelling.") unless city_exists
   end
 end
