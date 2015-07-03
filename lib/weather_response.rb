@@ -12,20 +12,19 @@ class WeatherResponse
     # Rails.cache.clear
     unless Rails.cache.fetch('curr_weather') && Rails.cache.fetch('forecast_weather')
       self.get_weather_api_data
-    end
-    unless self.same_curr_city?('curr_weather') && self.same_forecast_city?('forecast_weather')
+    else self.same_curr_city?('curr_weather') && self.same_forecast_city?('forecast_weather')
       self.get_weather_api_data
     end
   end
 
   def self.same_curr_city?(cache_name)
-    test = Rails.cache.fetch(cache_name)
-    ((test['name']).eql?(@curr_city.capitalize))
+    curr = Rails.cache.fetch(cache_name)
+    ((curr['name']).eql?(@curr_city.capitalize))
   end
 
   def self.same_forecast_city?(cache_name)
-    test = Rails.cache.fetch(cache_name)
-    (test['city']['name'].eql?(@forecast_city.capitalize))
+    forecast = Rails.cache.fetch(cache_name)
+    (forecast['city']['name'].eql?(@forecast_city.capitalize))
   end
 
   def self.get_weather_api_data
@@ -37,8 +36,8 @@ class WeatherResponse
 
     if(curr_response['cod'] == '404' || forecast_response['cod'] == '404')
       @existent_city = false
-      @curr_city = 'london'
-      @forecast_city = 'london'
+      @curr_city = 'berlin'
+      @forecast_city = 'berlin'
       self.get_weather_api_data
     else
       curr_data = JSON.parse(curr_response.body)
