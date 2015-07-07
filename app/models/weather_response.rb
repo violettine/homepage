@@ -1,6 +1,5 @@
 class WeatherResponse
-  include HTTParty
-  
+
   def initialize(params = {})
     @curr_city = 'Berlin'
     @forecast_city = 'Berlin'
@@ -38,22 +37,23 @@ class WeatherResponse
 
   def get_weather_api_data
     forecast_period = '12'
-    curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
-    forecast_response = 
-      HTTParty.get('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=' + 
-        forecast_period + '&q=' + @forecast_city)
+    # curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
+    # forecast_response = 
+    #   HTTParty.get('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=' + 
+    #     forecast_period + '&q=' + @forecast_city)
     # Demitry
     # self.class.get("data/2.5/forecast/daily", { query: {cnt: forecast_period, q: @forecast_city} })
     # Demitry
-    
-    if(curr_response['cod'] == '404' || forecast_response['cod'] == '404')
+    data = GetDataFromWeatherApi.new(@curr_city, @forecast_city, forecast_period)
+
+    if(data.current['cod'] == '404' || data.forecast['cod'] == '404')
       @existent_city = false
       @curr_city = 'berlin'
       @forecast_city = 'berlin'
       self.get_weather_api_data
     else
-      curr_data = JSON.parse(curr_response.body)
-      forecast_data = JSON.parse(forecast_response.body)
+      curr_data = JSON.parse((data.current).body)
+      forecast_data = JSON.parse(data.forecast.body)
       Rails.cache.write('curr_weather', curr_data, expires_in: 10.minute)
       Rails.cache.write('forecast_weather', forecast_data, expires_in: 10.minute)
     end
