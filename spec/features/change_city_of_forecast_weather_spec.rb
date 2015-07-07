@@ -7,7 +7,7 @@ RSpec.feature('Change city for forecast weather', type: :feature) do
     fill_in 'forecast[city]', with: 'Kiel'
     click_button 'commit_fore'
 
-    expect(page).to have_text('Kiel')
     expect(page).to match(/highcharts/)
+    expect(page).to have_text('Kiel')
   end
 end

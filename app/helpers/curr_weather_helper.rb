@@ -3,17 +3,14 @@ module CurrWeatherHelper
     curr_data['name']
   end
 
-  def temperature(curr_data)
+  def kelvin_to_celcius(curr_data)
+    # converting kelv temo into celc
     ((curr_data['main']['temp']).to_f - 273.15).round(1)
   end
 
   def cloud_view(curr_data)
     all_clouds_number = curr_data['clouds']['all']
-    if all_clouds_number.zero?
-      @sky_view = 'sky is clear'
-    else
-      @sky_view = 'sky is not clear'
-    end
+    @sky_view = all_clouds_number.zero? ? 'sky is clear' : 'sky is not clear'
   end
 
   def weather_pic(curr_data)
