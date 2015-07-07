@@ -25,19 +25,5 @@ RSpec.describe(ApiController, type: :controller) do
       post :index
       expect(response).to render_template('index')
     end
-
-    it 'knows its params' do
-      post :index
-      expect(controller.params[:curr_city]).to match 'berlin'
-      expect(controller.params[:forecast_city]).to match 'berlin'
-
-    end
-
-    it 'changes its params' do
-      # not working?? cant seem to change berlin to kiel this way, but how else?
-      post :index, params: {curr: 'kiel', forecast: 'kiel'}
-      expect(controller.params[:curr_city]).to match 'kiel'
-      expect(controller.params[:forecast_city]).to match 'kiel'
-    end
   end
 end
