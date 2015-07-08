@@ -25,5 +25,11 @@ RSpec.describe(ApiController, type: :controller) do
       post :index
       expect(response).to render_template('index')
     end
+
+    it 'renders successfully with params' do
+      post :index, params: { curr: { city: 'kiel' } }
+      expect(response).to render_template('index')
+      expect(response).to have_http_status(200)
+    end
   end
 end
