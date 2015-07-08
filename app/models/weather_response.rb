@@ -7,12 +7,12 @@ class WeatherResponse
     elsif params[:forecast]
       @forecast_city = params[:forecast][:city]
     end
-    @existent_city = true
+    @existing_city = true
   end
 
   def get_weather
     exists_weather?
-    return Rails.cache.fetch('curr_weather'), Rails.cache.fetch('forecast_weather'), @existent_city
+    return Rails.cache.fetch('curr_weather'), Rails.cache.fetch('forecast_weather'), @existing_city
   end
 
   def exists_weather?
@@ -36,10 +36,10 @@ class WeatherResponse
 
   def get_weather_api_data
     forecast_period = '12'
-    data = GetDataFromWeatherApi.new(@curr_city, @forecast_city, forecast_period)
+    data = WeatherApiRequest.new(@curr_city, @forecast_city, forecast_period)
 
     if (data.current['cod'] == '404' || data.forecast['cod'] == '404')
-      @existent_city = false
+      @existing_city = false
       @curr_city = 'berlin'
       @forecast_city = 'berlin'
       get_weather_api_data

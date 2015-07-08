@@ -1,4 +1,4 @@
-class GetDataFromWeatherApi
+class WeatherApiRequest
   include HTTParty
   base_uri 'http://api.openweathermap.org/data/2.5'
 

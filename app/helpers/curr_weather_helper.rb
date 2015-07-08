@@ -4,7 +4,7 @@ module CurrWeatherHelper
   end
 
   def kelvin_to_celsius(curr_data)
-    # converting kelv temo into celc
+    # converting kelv temp into celc
     ((curr_data['main']['temp']).to_f - 273.15).round(1)
   end
 
@@ -14,7 +14,7 @@ module CurrWeatherHelper
   end
 
   def weather_pic
-    # add diff weather cases to the pisc from openweathermap.org
+    # ToDo: add some weather cases to use diff pics from openweathermap.org
     @weather_pic = 'http://openweathermap.org/img/w/01d.png'
   end
 
