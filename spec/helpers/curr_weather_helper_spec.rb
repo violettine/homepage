@@ -11,11 +11,11 @@ RSpec.describe(CurrWeatherHelper, type: :helper) do
     end
   end
 
-  describe '#temperature' do
-    it 'returns the teperature' do
+  describe '#kelvin_to_celsius' do
+    it 'converts kelvin into celsius' do
       curr['main'] = {'temp' => 291.18}
 
-      expect(helper.temperature(curr)).to eql(18.0)
+      expect(helper.kelvin_to_celsius(curr)).to eql(18.0)
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe(CurrWeatherHelper, type: :helper) do
 
   describe '#weather_pic' do
     it 'returns weather picture' do
-      expect(helper.weather_pic(curr)).to have_text('01d.png')
+      expect(helper.weather_pic).to have_text('01d.png')
     end
   end
 

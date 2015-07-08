@@ -8,10 +8,10 @@ class GetDataFromWeatherApi
   end
 
   def current
-    self.class.get("/weather", @curr_options)
+    self.class.get('/weather', @curr_options)
   end
 
   def forecast
-    self.class.get("/forecast/daily", @fore_options)
+    self.class.get('/forecast/daily', @fore_options)
   end
 end

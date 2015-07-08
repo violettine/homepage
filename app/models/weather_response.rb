@@ -1,5 +1,4 @@
 class WeatherResponse
-
   def initialize(params = {})
     @curr_city = 'Berlin'
     @forecast_city = 'Berlin'
@@ -8,7 +7,7 @@ class WeatherResponse
     elsif params[:forecast]
       @forecast_city = params[:forecast][:city]
     end
-     @existent_city = true
+    @existent_city = true
   end
 
   def get_weather
@@ -37,20 +36,13 @@ class WeatherResponse
 
   def get_weather_api_data
     forecast_period = '12'
-    # curr_response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?q=' + @curr_city)
-    # forecast_response = 
-    #   HTTParty.get('http://api.openweathermap.org/data/2.5/forecast/daily?cnt=' + 
-    #     forecast_period + '&q=' + @forecast_city)
-    # Demitry
-    # self.class.get("data/2.5/forecast/daily", { query: {cnt: forecast_period, q: @forecast_city} })
-    # Demitry
     data = GetDataFromWeatherApi.new(@curr_city, @forecast_city, forecast_period)
 
-    if(data.current['cod'] == '404' || data.forecast['cod'] == '404')
+    if (data.current['cod'] == '404' || data.forecast['cod'] == '404')
       @existent_city = false
       @curr_city = 'berlin'
       @forecast_city = 'berlin'
-      self.get_weather_api_data
+      get_weather_api_data
     else
       curr_data = JSON.parse((data.current).body)
       forecast_data = JSON.parse(data.forecast.body)
