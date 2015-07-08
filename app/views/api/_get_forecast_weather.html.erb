@@ -1,0 +1,19 @@
+<div class='weather-widget'>
+
+  <h3 style='margin-top:0px'>Forecast for <%= forecast_city(@forecast_data) %></h3>
+
+  <%= form_for(:forecast, html: {multipart: true}) do |f| %>
+    Change city:
+    <%= f.text_field :city %><br>
+    <%= f.submit 'Search', id: 'commit_fore' %>
+  <% end %>
+
+  <%= content_tag :div, class: 'temp_information', data: {temp: @forecast_data} do %>
+  <% end %>
+
+  <div id='chart'>
+    <%# i dont need the following row, and so dont need to change initializers/assets.rb!
+    Because the file rests in asserts/javascript and get loaded in the header! %>
+    <%#= javascript_include_tag 'call_draw_daily_chart' %>
+  </div>
+</div>

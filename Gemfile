@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
+
+  gem 'capybara'
   gem 'guard-rspec', require: false
 
   gem 'rspec-rails', '~> 3.0'

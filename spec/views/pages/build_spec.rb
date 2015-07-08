@@ -9,7 +9,7 @@ RSpec.describe('pages/build', type: :view) do
   it 'displays an ordered list with some list items inside' do
     render
     assert_select 'ol' do
-      assert_select 'li', count: 5
+    assert_select 'li', count: 5
     end
   end
 

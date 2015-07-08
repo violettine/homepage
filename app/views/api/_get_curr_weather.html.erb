@@ -1,0 +1,15 @@
+<div class='weather-widget'>
+
+  <h3 style='margin-top:0px'>
+  Current weather of <%= curr_city(@curr_data) %></h3>
+  <h2><img src= <%= weather_pic %> >
+  <%= kelvin_to_celsius(@curr_data) %> °C</h2>
+  <%= cloud_view(@curr_data) %> <p></p>
+  <%= time %> <p></p>
+
+  <%= form_for(:curr, html: {multipart: true}) do |f| %>
+    Change city:
+    <%= f.text_field :city %><br>
+    <%= f.submit 'Search', id: 'commit_curr' %>
+  <% end %>
+</div>

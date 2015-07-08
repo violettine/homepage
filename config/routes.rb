@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'api_page/index'
+  post 'api/index'
+  get 'api/index'
   get 'short_movies/show'
   get 'pages/fun'
   get 'pages/personal'
