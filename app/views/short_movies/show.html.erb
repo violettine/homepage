@@ -1,5 +1,12 @@
 <h1> Cute and funny short Movies </h1>
 
+<div id='search_form'>
+<%= form_for(:search, url: searches_show_path) do |f| %>
+  <%= f.text_field :term %>
+  <%= f.submit 'Search', id: 'commit_search'  %>
+<% end %>
+</div>
+
 <% @short_movies.each do |movie| %>
   <% sub_link_address(movie) %>
   <div id='short_movie'>
