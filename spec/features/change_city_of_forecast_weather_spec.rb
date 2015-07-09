@@ -11,7 +11,7 @@ RSpec.feature('Change city for forecast weather', type: :feature) do
   end
 
   scenario('Highchart gets loaded, so no JavaScript errors', js: true) do
-    visit 'http://localhost:3000/api/index'
+    visit 'api/index'
     expect(page).not_to have_errors
   end
 end
