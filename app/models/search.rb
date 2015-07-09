@@ -6,6 +6,6 @@ class Search
   end
 
   def short_movies
-     ShortMovie.find_by_short_movie(term) || ShortMovie.last
+    ShortMovie.where('short_movie LIKE ?', "%#{term}%").first || ShortMovie.last
   end
 end
