@@ -28,6 +28,7 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'database_cleaner'
+  gem 'launchy'
 
   gem 'guard-rspec', require: false
 
