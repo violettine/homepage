@@ -12,6 +12,9 @@ class ShortMoviesController < ApplicationController
   #     puts 'Video not saved!'
   #   end
   # end
+  def add
+
+  end
 
   private
 

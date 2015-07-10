@@ -1,10 +1,16 @@
 <h1> Cute and funny short Movies </h1>
 
 <div id='search_form'>
-<%= form_for(:search, url: searches_show_path) do |f| %>
-  <%= f.text_field :term %>
-  <%= f.submit 'Search', id: 'commit_search'  %>
-<% end %>
+  <%= form_for(:search, url: searches_show_path) do |f| %>
+    <%= f.text_field :term %>
+    <%= f.submit 'Search', id: 'commit_search'  %>
+  <% end %>
+</div>
+
+<div id='add_form'>
+  <%= form_for(:add, url: short_movies_add_path, method: :get) do |f| %>
+    <%= f.submit 'Add new short movie', id: 'commit_add' %>
+  <% end %>
 </div>
 
 <% @short_movies.each do |movie| %>
