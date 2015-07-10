@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature('User clicks on short_movie link', type: :feature) do
-  before do
-    @short_movies = 'https://www.youtube.com/embed/Gq0jfzgvvrM'
-  end
+RSpec.feature('User clicks on short_movie link', type: :feature) do 
   scenario 'user clicks link, short movies are loaded' do
+    short_movie = ShortMovie.create(link: "https://www.youtube.com/embed/Gq0jfzgvvrM")
+
     visit 'pages/fun'
     click_link 'short movies'
     expect(page).to have_css('#short_movie')
