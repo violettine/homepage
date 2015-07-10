@@ -237,6 +237,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   pg (= 0.17.1)
+  pry
   puma (= 2.11.1)
   rails (= 4.2.1)
   rails_12factor (= 0.0.2)

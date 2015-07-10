@@ -15,7 +15,7 @@ RSpec.describe(ApiController, type: :controller) do
   end
 
   describe 'POST #index' do
-   it 'responds successfully with an HTTP 200 status code' do
+    it 'responds successfully with an HTTP 200 status code' do
       post :index
       expect(response).to be_success
       expect(response).to have_http_status(200)

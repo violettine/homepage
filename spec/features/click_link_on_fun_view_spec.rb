@@ -7,7 +7,6 @@ RSpec.feature('User clicks on short_movie link', type: :feature) do
   scenario 'user clicks link, short movies are loaded' do
     visit 'pages/fun'
     click_link 'short movies'
-    save_and_open_page
     expect(page).to have_css('#short_movie')
   end
 end
