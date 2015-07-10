@@ -18,8 +18,13 @@ iframe{
 
 #add_new_movie{
   float:left;
+  z-order:2;
 }
 
 #preview_movie{
-  float:right;
+  width: 497px;
+  height: 270px;
+  padding: 10px;
+  float: left;
+  z-order:1;
 }

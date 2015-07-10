@@ -6,7 +6,7 @@ class ShortMoviesController < ApplicationController
   def create
     @short_movie = ShortMovie.new(short_movies_require)
     if @short_movie.save
-      flash.now[:success] = 'Thanks for your video'
+      flash.now[:success] = 'Thanks for your video!'
     else
       flash.now[:alert] = 'Something went wrong..!'
     end
