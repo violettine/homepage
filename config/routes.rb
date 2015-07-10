@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'short_movies/add'
+  post 'short_movies/add'
+  post 'short_movies/create'
   post 'searches/show'
   get 'api/index'
   post 'api/index'

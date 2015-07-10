@@ -1,6 +1,8 @@
 <h1>Hey there! <br> You found another cute and funny short movie? <br>Great!</h1>
 
+Thanks! This is your short movie, right? <br><br>
 <div id='add_new_movie'>
+Want to add another movie?<br><br>
   <%= form_for(:short_movies, url: short_movies_create_path) do |f| %>
     Please insert the link to the movie here:<br><br>
     <%= f.text_field :link %>
