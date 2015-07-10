@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'api/youtube_request'
+
   get 'short_movies/add'
   post 'short_movies/add'
   post 'short_movies/create'
