@@ -5,7 +5,13 @@ class YtApiRequest
   YOUTUBE_API_SERVICE_NAME = 'youtube'
   YOUTUBE_API_VERSION = 'v3'
 
-  def self.init_service
+  def initialize
+    @videos = []
+    @channels = []
+    @playlists = []
+  end
+
+  def init_service
     client = Google::APIClient.new(
       :key => DEVELOPER_KEY,
       :authorization => nil,
@@ -17,8 +23,8 @@ class YtApiRequest
     return client, youtube
   end
 
-  def self.youtube_request(term)
-    client, youtube = self.init_service
+  def youtube_request(term)
+    client, youtube = init_service
 
     begin
       search_response = client.execute!(
@@ -26,33 +32,24 @@ class YtApiRequest
         :parameters => {
           :part => 'snippet',
           :q => term,
-          :maxResults => 25
+          :maxResults => 24
         }
       )
 
-      self.sort_result(search_response)
+      sort_result(search_response)
 
       puts "Videos:\n", @videos, "\n"
-      puts "Channels:\n", @channels, "\n"
-      puts "Playlists:\n", @playlists, "\n"
+      return @videos
     rescue Google::APIClient::TransmissionError => e
       puts e.result.body
     end
   end
 
-  def self.sort_result(search_response)
-    @videos = []
-    @channels = []
-    @playlists = []
-
+  def sort_result(search_response)
     search_response.data.items.each do |search_result|
       case search_result.id.kind
         when 'youtube#video'
-          @videos << "#{search_result.snippet.title} (#{search_result.id.videoId})"
-        when 'youtube#channel'
-          @channels << "#{search_result.snippet.title} (#{search_result.id.channelId})"
-        when 'youtube#playlist'
-          @playlists << "#{search_result.snippet.title} (#{search_result.id.playlistId})"
+          @videos << "#{search_result.id.videoId}"
       end
     end
   end

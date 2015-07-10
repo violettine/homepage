@@ -7,6 +7,13 @@
   <% end %>
 </div>
 
+<div id='search_yt_form'>
+  <%= form_for(:search, url: api_youtube_request_path) do |f| %>
+    <%= f.text_field :term %>
+    <%= f.submit 'Search in Youtube', id: 'commit_search'  %>
+  <% end %>
+</div>
+
 <%= link_to 'Add new short movie', short_movies_add_path %>
 
 <% @short_movies.each do |movie| %>

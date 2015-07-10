@@ -10,6 +10,7 @@ class ApiController < ApplicationController
   end
 
   def youtube_request
-    YtApiRequest.youtube_request('for the birds')
+    yt_req = YtApiRequest.new
+    @videos = yt_req.youtube_request(params[:search][:term])
   end
 end

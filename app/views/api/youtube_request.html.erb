@@ -1,0 +1,5 @@
+<% @videos.each do |movie| %>
+  <div id='short_movie'>
+     <iframe src=<%="https://www.youtube.com/embed/#{movie}"%> frameborder="0" allowfullscreen></iframe>
+  </div>
+<%end%>
