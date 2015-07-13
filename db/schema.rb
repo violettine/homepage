@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615085123) do
+ActiveRecord::Schema.define(version: 20150713114431) do
 
   create_table "short_movies", force: :cascade do |t|
     t.string   "short_movie"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "link"
+    t.string   "yt_id"
   end
 
   add_index "short_movies", ["link"], name: "index_short_movies_on_link"
