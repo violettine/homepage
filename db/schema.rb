@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713160803) do
+ActiveRecord::Schema.define(version: 20150713165252) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -40,5 +40,12 @@ ActiveRecord::Schema.define(version: 20150713160803) do
   end
 
   add_index "short_movies", ["link"], name: "index_short_movies_on_link"
+
+  create_table "suggested_movies", force: :cascade do |t|
+    t.string   "link"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
