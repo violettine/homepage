@@ -1,0 +1,9 @@
+<% if admin_signed_in? %>
+  <%= form_for(:short_movies, url: short_movies_create_path) do |f| %>
+    Please insert the link to the movie here:<br>
+    <%= f.text_field :yt_id %><br><br>
+    And the name of the movie here:<br>
+    <%= f.text_field :short_movie %>
+    <%= f.submit 'Add', id: 'commit_add' %>
+  <% end %>
+<% end %>

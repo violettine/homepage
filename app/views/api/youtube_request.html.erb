@@ -1,0 +1,10 @@
+<h1> Your Youtube results: </h1>
+
+<%= render 'short_movies/search_yt_form'%>
+<%= render 'short_movies/back_to_all_movies' %>
+
+<% @resulting_videos.each do |movie| %>
+  <div id='short_movie'>
+     <iframe src=<%="https://www.youtube.com/embed/#{movie}"%> frameborder="0" allowfullscreen></iframe>
+  </div>
+<%end%>

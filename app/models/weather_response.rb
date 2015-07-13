@@ -1,4 +1,6 @@
 class WeatherResponse
+  attr_reader :curr_city
+  attr_reader :forecast_city
   def initialize(params = {})
     @curr_city = 'Berlin'
     @forecast_city = 'Berlin'

@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
+gem 'google-api-client'
+
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -23,9 +27,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'pry'
+
 group :development, :test do
 
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'launchy'
+
   gem 'guard-rspec', require: false
 
   gem 'rspec-rails', '~> 3.0'
@@ -40,6 +50,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
 
 end
 

@@ -2,7 +2,7 @@
 
 .header{
   padding-top: 15px;
-  background-color: lightgray;
+  background-color: black;
   border-bottom: 1px solid gray;
   position:absolute;
   top:0;
@@ -12,6 +12,7 @@
   #header_left{
     float:left;
     list-style: none;
+    color: white;
   }
   #header_right{
     float:right;
@@ -23,7 +24,7 @@
 /*footer*/
 
 .footer{
-  background-color: gray;
+  background-color: black;
   margin-top: 45px;
   padding-top:5px;
   border-top: 1px solid gray;

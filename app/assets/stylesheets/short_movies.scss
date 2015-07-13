@@ -3,9 +3,40 @@
   height: 250px;
   float: left;
   padding: 10px;
+  clear:right;
 }
 
 iframe{
   width:100%;
   height:100%;
+}
+
+#search_form{
+  float:right;
+  padding-right: 10px;
+}
+
+#search_yt_form{
+  float:right;
+  padding-right: 10px;
+  clear:right;
+}
+
+#add_new_movie{
+  appearance: button;
+  text-decoration: none;
+  float:left;
+  border: 1px solid lightgray;
+  color: buttontext;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 2px 8px;
+  text-align: center;
+}
+
+#preview_movie{
+  width: 497px;
+  height: 270px;
+  padding: 10px;
+  float: left;
 }

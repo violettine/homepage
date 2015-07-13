@@ -1,0 +1,18 @@
+<h1> Cute and funny short Movies </h1>
+
+<%= render 'short_movies/search_form' %>
+
+<div id='add_form'>
+  <%= form_for(:add, url: short_movies_add_path, method: :get) do |f| %>
+    <%= f.submit 'Add new short movie', id: 'commit_add' %>
+  <% end %>
+</div>
+
+<%= render 'short_movies/back_to_all_movies' %>
+<br>
+<p>You searched for the title: '<%= @search.term %>'<br>Here are your results:</p>
+<% @result.each do |f| %>
+  <div id='short_movie'>
+     <iframe src=<%="#{f.link}"%> frameborder="0" allowfullscreen></iframe>
+  </div>
+<% end %>

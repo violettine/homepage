@@ -2,16 +2,28 @@ require 'rails_helper'
 
 RSpec.describe(WeatherResponse, type: :model) do 
   context 'initialize works fine' do
-    it 'knows its params' do
+    it 'knows its curr_city params' do
       resp = WeatherResponse.new
-      expect(resp).to match(/Berlin/)
+      expect(resp.curr_city).to eql('Berlin')
     end
 
-    it 'changes its params' do
+    it 'changes its curr_city params' do
       par = {}
-      par[:curr] = { city: 'kiel' }
+      par[:curr] = { city: 'Kiel' }
       resp = WeatherResponse.new(par)
-      expect(resp).to match(/Kiel/)
+      expect(resp.curr_city).to match('Kiel')
+    end
+
+    it 'knows its forecast_city params' do
+      resp = WeatherResponse.new
+      expect(resp.forecast_city).to eql('Berlin')
+    end
+
+    it 'changes its forecast_city params' do
+      par = {}
+      par[:forecast] = { city: 'Kiel' }
+      resp = WeatherResponse.new(par)
+      expect(resp.forecast_city).to match('Kiel')
     end
   end
 end
