@@ -7,8 +7,18 @@ class YtApiRequest
 
   def initialize
     @videos = []
-    @channels = []
-    @playlists = []
+  end
+
+  def youtube_request(term)
+    client, youtube = init_service
+
+    begin
+      search_response = create_search_list(client, youtube, term)
+      sort_result(search_response)
+      @videos
+    rescue Google::APIClient::TransmissionError => e
+      puts e.result.body
+    end
   end
 
   def init_service
@@ -23,26 +33,15 @@ class YtApiRequest
     return client, youtube
   end
 
-  def youtube_request(term)
-    client, youtube = init_service
-
-    begin
-      search_response = client.execute!(
-        :api_method => youtube.search.list,
-        :parameters => {
-          :part => 'snippet',
-          :q => term,
-          :maxResults => 24
-        }
-      )
-
-      sort_result(search_response)
-
-      puts "Videos:\n", @videos, "\n"
-      return @videos
-    rescue Google::APIClient::TransmissionError => e
-      puts e.result.body
-    end
+  def create_search_list(client, youtube, term)
+    search_response = client.execute!(
+      :api_method => youtube.search.list,
+      :parameters => {
+        :part => 'snippet',
+        :q => term,
+        :maxResults => 24
+      }
+    )
   end
 
   def sort_result(search_response)
