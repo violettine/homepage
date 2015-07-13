@@ -1,8 +1,9 @@
 <h1> Cute and funny short Movies </h1>
-
-<div>
-  <a id='add_new_movie' href="/short_movies/add">Add new short movie</a>
-</div>
+<% if admin_signed_in? %>
+  <div>
+    <a id='add_new_movie' href="/short_movies/add">Add new short movie</a>
+  </div>
+<% end %>
 
 <%= render 'search_form' %>
 <br>
