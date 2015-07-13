@@ -5,6 +5,6 @@ class Search
   end
 
   def short_movies
-    (ShortMovie.where('short_movie LIKE ?', "%#{term}%")|| ShortMovie.last).to_a
+    (ShortMovie.where('short_movie LIKE ?', "%#{term}%")).to_a
   end
 end
