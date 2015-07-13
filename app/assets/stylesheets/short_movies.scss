@@ -16,9 +16,22 @@ iframe{
   padding-right: 10px;
 }
 
+#search_yt_form{
+  float:right;
+  padding-right: 10px;
+  clear:right;
+}
+
 #add_new_movie{
+  appearance: button;
+  text-decoration: none;
   float:left;
-  z-order:2;
+  border: 1px solid lightgray;
+  color: buttontext;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 2px 8px;
+  text-align: center;
 }
 
 #preview_movie{
@@ -26,5 +39,4 @@ iframe{
   height: 270px;
   padding: 10px;
   float: left;
-  z-order:1;
 }

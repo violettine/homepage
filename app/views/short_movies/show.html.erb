@@ -1,20 +1,12 @@
 <h1> Cute and funny short Movies </h1>
 
-<div id='search_form'>
-  <%= form_for(:search, url: searches_show_path) do |f| %>
-    <%= f.text_field :term %>
-    <%= f.submit 'Search', id: 'commit_search'  %>
-  <% end %>
+<div>
+  <a id='add_new_movie' href="/short_movies/add">Add new short movie</a>
 </div>
 
-<div id='search_yt_form'>
-  <%= form_for(:search, url: api_youtube_request_path) do |f| %>
-    <%= f.text_field :term %>
-    <%= f.submit 'Search in Youtube', id: 'commit_search'  %>
-  <% end %>
-</div>
-
-<%= link_to 'Add new short movie', short_movies_add_path %>
+<%= render 'search_form' %>
+<br>
+<%= render 'search_yt_form' %>
 
 <% @short_movies.each do |movie| %>
   <% sub_link_address(movie) %>
@@ -22,3 +14,4 @@
      <iframe src=<%="#{movie.link}"%> frameborder="0" allowfullscreen></iframe>
   </div>
 <%end%>
+

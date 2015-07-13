@@ -1,9 +1,7 @@
 <h1>Hey there! <br> You found another cute and funny short movie? <br>Great!</h1>
 
 <div id='add_new_movie'>
-  <%= form_for(:short_movies, url: short_movies_create_path) do |f| %>
-    Please insert the link to the movie here:<br><br>
-    <%= f.text_field :link %>
-    <%= f.submit 'Add', id: 'commit_add' %>
-  <% end %>
+  <%= render 'add_new_movie_form' %>
 </div>
+
+<%= render 'back_to_all_movies' %>

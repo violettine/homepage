@@ -1,0 +1,6 @@
+<div id='search_yt_form'>
+  <%= form_for(:search, url: api_youtube_request_path) do |f| %>
+    <%= f.submit 'Search in Youtube', id: 'commit_search'  %>
+    <%= f.text_field :term %>
+  <% end %>
+</div>

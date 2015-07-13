@@ -1,11 +1,7 @@
 <h1> Your Youtube results: </h1>
 
-<div id='search_yt_form'>
-  <%= form_for(:search, url: api_youtube_request_path) do |f| %>
-    <%= f.text_field :term %>
-    <%= f.submit 'Search in Youtube', id: 'commit_search'  %>
-  <% end %>
-</div>
+<%= render 'short_movies/search_yt_form'%>
+<%= render 'short_movies/back_to_all_movies' %>
 
 <% @resulting_videos.each do |movie| %>
   <div id='short_movie'>
