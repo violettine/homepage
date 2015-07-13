@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   post 'api/youtube_request'
   get 'short_movies/add'
   post 'short_movies/add'
