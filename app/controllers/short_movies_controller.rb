@@ -7,9 +7,9 @@ class ShortMoviesController < ApplicationController
     @short_movie = ShortMovie.new(short_movies_require)
     @short_movie.create_link(@short_movie)
     if @short_movie.save
-      flash.now[:success] = 'Thanks for your video!'
+      flash.now[:success] = 'Thanks for your short movie!'
     else
-      flash.now[:alert] = 'Hey! It seems like the movie already exists in my database!'
+      flash.now[:alert] = 'Hey! Change bug alert here!!'
     end
   end
 
@@ -19,6 +19,6 @@ class ShortMoviesController < ApplicationController
   private
 
   def short_movies_require
-    params.require(:short_movies).permit(:yt_id)
+    params.require(:short_movies).permit(:yt_id, :short_movie)
   end
 end
